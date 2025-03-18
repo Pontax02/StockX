@@ -1,6 +1,6 @@
 package edu.estatuas;
 
-public class Sneaker {
+public class Sneaker implements Item {
     public final String style;
     public final String name;
 
