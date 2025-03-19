@@ -3,6 +3,9 @@ package edu.estatuas;
 public class Sneaker implements Item {
     public final String style;
     public final String name;
+    public int bid;
+    public int ask;
+    public int sale;
 
     public Sneaker(String style, String name) {
         this.style = style;
@@ -11,14 +14,29 @@ public class Sneaker implements Item {
     }
 
     private String getStyle(){
-        return style;
+        return this.style;
     }
     private String getName(){
-        return name;
+        return this.name;
     }
     @Override
+    public int getAsk(){
+        return this.ask;
+    }
+    @Override
+    public int getBid(){
+        return this.bid;
+    }
+    @Override
+    public int getSale(){
+        return this.sale;
+    }
+
+
+
+    @Override
     public String toString() {
-        return getName() + " \n" + getStyle();
+        return this.getName() + " \n" + this.getStyle();
 
     }
 }
