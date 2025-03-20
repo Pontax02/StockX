@@ -1,8 +1,8 @@
 package edu.estatuas;
 
 public class Sneaker implements Item  {
-    public final String style;
-    public final String name;
+    public  String style;
+    public  String name;
     public int bid;
     public int ask;
     public int sale;
@@ -13,10 +13,10 @@ public class Sneaker implements Item  {
 
     }
 
-    private String getStyle(){
+    public String getStyle(){
         return this.style;
     }
-    private String getName(){
+    public String getName(){
         return this.name;
     }
     @Override
