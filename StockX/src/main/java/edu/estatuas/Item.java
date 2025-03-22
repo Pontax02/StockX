@@ -10,4 +10,6 @@ public interface Item {
     void setBid(int bid);
     void add(Offer offers);
     List<Offer> offers();
+
+    void setSale(int sale);
 }

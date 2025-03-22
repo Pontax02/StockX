@@ -33,7 +33,10 @@ public class Sneaker implements Item  {
     public void setAsk(int ask){
         this.ask = ask;
     }
-
+    @Override
+    public void setSale(int sale){
+        this.sale = sale;
+    }
 
     public String getStyle(){
         return this.style;
