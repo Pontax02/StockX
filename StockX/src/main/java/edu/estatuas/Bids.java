@@ -1,19 +1,11 @@
 package edu.estatuas;
 
-import java.util.ArrayList;
+
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Bids implements Criteria{
-
-
-    Bids(){
-
-
-    }
-
-
-
-
 
 
 
@@ -21,9 +13,12 @@ public class Bids implements Criteria{
 
     @Override
     public List<Offer> checkCriteria(Item sneaker){
-        List<Offer> offers = new ArrayList<>();
 
-        return offers;
+
+        return sneaker.offers()
+                .stream()
+                .filter(o -> o instanceof Bid)
+                .collect(Collectors.toList());
     }
 
 }

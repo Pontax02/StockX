@@ -15,11 +15,11 @@ public class Bid implements Offer{
         }
         @Override
         public int value(){
-            return this.bid;
+            return this.bid.intValue();
         }
         @Override
         public String toString() {
-            return "test";
+            return "\t" + this.size() +"\t\t\t"+ this.value() + "\n";
         }
 
 

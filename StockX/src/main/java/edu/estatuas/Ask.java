@@ -17,4 +17,8 @@ public class Ask implements Offer {
         return this.bid;
     }
 
+    @Override
+    public String toString() {
+        return " \t"+this.size() + "\t\t\t" + this.value() + " \n";
+    }
 }

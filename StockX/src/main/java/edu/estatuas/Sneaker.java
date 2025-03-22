@@ -10,20 +10,20 @@ public class Sneaker implements Item  {
     public int ask;
     public int sale;
 
-    public List<Offer> offers = new ArrayList<>();
+    public List<Offer> offer = new ArrayList<>();
     public Sneaker(String style, String name) {
         this.style = style;
         this.name = name;
 
     }
     @Override
-    public void add(Offer offers){
-        this.offers.add(offers);
+    public void add(Offer offer){
+        this.offer.add(offer);
     }
     @Override
-    public List<Offer> offers(){
+    public  List<Offer> offers(){
 
-        return offers;
+        return this.offer;
     }
 
 
@@ -58,7 +58,7 @@ public class Sneaker implements Item  {
 
     @Override
     public String toString() {
-        return this.getName() + " \n" + this.getStyle() + this.offers();
+        return this.getName() + " \n" + this.getStyle();
 
     }
 }
