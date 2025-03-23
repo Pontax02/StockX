@@ -141,6 +141,67 @@ public class Stockx {
         sneaker.setSale(actualSale.isEmpty()? 0 : actualSale.get(0).value());
         System.out.println(Stockx.draw(sneaker));
 
+
+        /*
+         * Mostrar info de la zapatilla
+         * en la talla 9.5
+         */
+
+        /*
+         * Muestra las sales de la talla 9.5
+         *
+         * Crea un filtro Size(talla) que devuelva las
+         * zapatillas de la talla indicada.
+         *
+         * Crea un filtro AndCriteria() que haga
+         * un AND de los filtros Size y Sales.
+         */
+
+        System.out.println("\n\t\t SALES 9.5 US");
+        Criteria size = new Size("9.5");
+
+        sales = new Sales();
+        Criteria andSizeSales = new AndCriteria(size, sales);
+        andSizeSales.checkCriteria(sneaker).forEach(System.out::print);
+
+        List<Offer> sizeSales = andSizeSales.checkCriteria(sneaker);
+        sneaker.setSale(sizeSales.isEmpty()?
+                0 :
+                sizeSales.get(sizeSales.size() -1).value());
+        System.out.println("\n\t\t LAST SALE 9.5 US: " + sneaker.getSale());
+
+        /*
+         * Reutiliza el filtro AndCriteria
+         * para filtrar las bids de la talla 9.5
+         */
+
+        System.out.println("\n\t\t BIDS 9.5 US");
+        bids = new Bids();
+        Criteria andSizeBids = new AndCriteria(size, bids);
+        andSizeBids.checkCriteria(sneaker).forEach(System.out::print);
+
+        /*
+         * Crea un filtro Max(size, bids)
+         * que devuelva el maximo de las bids
+         * de una talla.
+         */
+
+        Criteria sizeMaxBid = new Max(size, bids);
+        List<Offer> sizeBid = sizeMaxBid.checkCriteria(sneaker);
+        sneaker.setBid(sizeBid.isEmpty()? 0 : sizeBid.get(0).value());
+        System.out.println("\n\t\t MAX BID 9.5 US: " + sneaker.getBid());
+
+        /*
+         * Crea un filtro Min(size, asks)
+         * que devuelva el minimo de las asks
+         * de una talla.
+         */
+
+        Criteria sizeMinAsk = new Min(size, asks);
+        List<Offer> sizeAsk = sizeMinAsk.checkCriteria(sneaker);
+        sneaker.setAsk(sizeAsk.isEmpty()? 0 : sizeAsk.get(0).value());
+        System.out.println("\n\t\t MIN ASK 9.5 US: " + sneaker.getAsk());
+
     }
 
     public static String draw(Item sneaker) {
