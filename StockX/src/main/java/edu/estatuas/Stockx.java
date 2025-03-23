@@ -202,6 +202,17 @@ public class Stockx {
         sneaker.setAsk(sizeAsk.isEmpty()? 0 : sizeAsk.get(0).value());
         System.out.println("\n\t\t MIN ASK 9.5 US: " + sneaker.getAsk());
 
+        /*
+         * Mostrar info de la zapatilla
+         * en la talla 9.5
+         * - ultima venta
+         * - minima ask
+         * - maxima bid
+         */
+
+        System.out.println(Stockx.draw(sneaker));
+
+        // mostrar las listas ordenadas
     }
 
     public static String draw(Item sneaker) {
